@@ -4,10 +4,29 @@ import CTASection from "@/components/CTASection";
 import ContactForm from "@/components/ContactForm";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import SEO from "@/components/SEO";
 
 export default function About() {
+  useSEO({
+    title: "About Me",
+    description: "Discover Arjun A's background as a Student Representative at IEEE Kerala Section, hackathon winner, community leader, and technical organizer.",
+    keywords: "Arjun A, About Arjun, IEEE Leadership, Student Leader, B.Tech TocH, Hackathon Winner",
+    canonical: window.location.origin + "/about"
+  });
+
+  const pageData = {
+    title: "About Me",
+    description: "Discover Arjun A's background as a Student Representative at IEEE Kerala Section, hackathon winner, community leader, and technical organizer.",
+    breadcrumbs: [
+      { name: "Home", path: "/" },
+      { name: "About", path: "/about" }
+    ]
+  };
+
   return (
     <div className="bg-white">
+      <SEO schemaType="WebPage" data={pageData} />
       <PageHeader title="About Me" />
       <MarqueeTicker />
       

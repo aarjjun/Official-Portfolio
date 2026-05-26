@@ -4,6 +4,8 @@ import CTASection from "@/components/CTASection";
 import ContactForm from "@/components/ContactForm";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
+import SEO from "@/components/SEO";
 import {
   Users, Trophy, Calendar, BookOpen, Heart, Code2,
   Star, Award, Zap, Target, Globe, Cpu
@@ -23,6 +25,22 @@ function TimelineDot() {
 }
 
 export default function Leadership() {
+  useSEO({
+    title: "Leadership & Impact",
+    description: "Explore Arjun A's leadership roles in IEEE Kerala Section, community activities, achievements, hackathons, and mentoring initiatives.",
+    keywords: "IEEE Volunteer, Student Leadership, Hackathon Wins, Community Impact, Organised Events, Mentoring",
+    canonical: window.location.origin + "/services"
+  });
+
+  const pageData = {
+    title: "Leadership & Impact",
+    description: "Explore Arjun A's leadership roles in IEEE Kerala Section, community activities, achievements, hackathons, and mentoring initiatives.",
+    breadcrumbs: [
+      { name: "Home", path: "/" },
+      { name: "Leadership & Impact", path: "/services" }
+    ]
+  };
+
   const ieeeRoles = [
     {
       period: "Present Role",
@@ -127,6 +145,7 @@ export default function Leadership() {
 
   return (
     <div className="bg-white">
+      <SEO schemaType="WebPage" data={pageData} />
       <PageHeader title="Leadership & Impact" />
       <MarqueeTicker />
 

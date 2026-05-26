@@ -3,28 +3,40 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, Terminal } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import { useSEO } from "@/hooks/useSEO";
+import SEO from "@/components/SEO";
 
 export default function Blogs() {
+  useSEO({
+    title: "Knowledge Journal & Blog",
+    description: "Read insights, workshop summaries, and volunteering narratives written by Arjun A.",
+    keywords: "Arjun A Blog, Knowledge Journal, IEEE YESS 2025, Web Development, Study Jams, Mentorship",
+    canonical: window.location.origin + "/blogs"
+  });
+
   const blogs = [
     {
-      image: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=800&q=80",
-      category: "Session Notes",
-      date: "Recent Session",
+      slug: "ieee-yess-experience",
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+      category: "Leadership • IEEE • Community Impact",
+      date: "January 2025",
+      title: "IEEE YESS 2025 Journey: Empowering the Next Generation of Engineers",
+      description: "First-person reflections on organizing IEEE YESS 2025, coordinating Kerala's largest student summit, and driving youth empowerment in tech.",
+      author: "Arjun A"
+    },
+    {
+      slug: "portfolio-session",
+      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&q=80",
+      category: "Mentoring & Technical Sessions",
+      date: "March 2026",
       title: "Portfolio Website Development Session",
       description: "Conducted a hands-on session teaching students portfolio planning, HTML, CSS, JavaScript, and responsive design principles.",
       author: "Arjun A"
     },
     {
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
-      category: "Technical Learnings",
-      date: "Workshop",
-      title: "Introduction to No-Code Platforms",
-      description: "Introduced students to various no-code tools to accelerate prototyping, allowing non-programmers to build applications quickly.",
-      author: "Arjun A"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800&q=80",
-      category: "Community Stories",
+      slug: "study-jams",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+      category: "Community & Peer Learning",
       date: "Ongoing",
       title: "Study Jams & Junior Mentoring",
       description: "Community learning initiatives and 1:1 sessions supporting junior students in their academic projects, hackathons, and technical growth.",
@@ -33,14 +45,23 @@ export default function Blogs() {
   ];
 
   const archiveItems = [
-    { date: "Oct 2024", title: "Reflections on Leading TocH IEEE Computer Society", category: "Leadership" },
-    { date: "Sep 2024", title: "How to Win Your First Student Hackathon", category: "Hackathons" },
-    { date: "Jul 2024", title: "Building Maveli GPT: Behind the Scenes", category: "AI & Innovation" },
-    { date: "May 2024", title: "A Guide to No-Code Prototyping for Beginners", category: "Tech Learnings" }
+    { date: "Oct 2024", title: "Reflections on Leading TocH IEEE Computer Society", category: "Leadership", slug: "ieee-yess-experience" },
+    { date: "Sep 2024", title: "How to Win Your First Student Hackathon", category: "Hackathons", slug: "study-jams" },
+    { date: "Jul 2024", title: "Building Maveli GPT: Behind the Scenes", category: "AI & Innovation", slug: "study-jams" },
+    { date: "May 2024", title: "A Guide to No-Code Prototyping for Beginners", category: "Tech Learnings", slug: "portfolio-session" }
   ];
+
+  const blogSchemaData = {
+    posts: blogs.map(b => ({
+      title: b.title,
+      description: b.description,
+      path: `/knowledge/${b.slug}`
+    }))
+  };
 
   return (
     <div className="bg-white">
+      <SEO schemaType="Blog" data={blogSchemaData} />
       <PageHeader title="Knowledge Hub" />
       <MarqueeTicker />
       
@@ -61,34 +82,36 @@ export default function Blogs() {
 
           {/* Featured Post */}
           <div className="mb-24">
-            <div className="border border-gray-100 rounded-[32px] overflow-hidden bg-white hover:shadow-xl transition-shadow duration-300 group flex flex-col md:flex-row gap-8 p-6 md:p-8">
-              <div className="w-full md:w-1/2 aspect-[16/10] md:aspect-[4/3] rounded-2xl overflow-hidden relative bg-gray-100">
-                <img src={blogs[0].image} alt={blogs[0].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" />
-                <span className="absolute top-4 left-4 px-4 py-1.5 bg-accent text-primary text-xs font-bold rounded-full uppercase tracking-wider">
-                  {blogs[0].category}
-                </span>
-              </div>
-              <div className="w-full md:w-1/2 flex flex-col justify-between py-2">
-                <div>
-                  <span className="text-xs text-gray-400 font-semibold uppercase tracking-wider block mb-3">{blogs[0].date}</span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors leading-tight">
-                    {blogs[0].title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6 text-base md:text-lg">
-                    {blogs[0].description}
-                  </p>
-                </div>
-                <div className="flex items-center justify-between border-t border-gray-100 pt-6 mt-auto">
-                  <span className="text-sm font-semibold text-gray-900 flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-accent flex items-center justify-center text-primary text-[10px] font-bold">A</span>
-                    {blogs[0].author}
+            <Link href={`/knowledge/${blogs[0].slug}`} className="block group">
+              <div className="border border-gray-100 rounded-[32px] overflow-hidden bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row gap-8 p-6 md:p-8">
+                <div className="w-full md:w-1/2 aspect-[16/10] md:aspect-[4/3] rounded-2xl overflow-hidden relative bg-gray-100">
+                  <img src={blogs[0].image} alt={blogs[0].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" />
+                  <span className="absolute top-4 left-4 px-4 py-1.5 bg-accent text-primary text-xs font-bold rounded-full uppercase tracking-wider">
+                    {blogs[0].category}
                   </span>
-                  <div className="inline-flex items-center gap-2 font-semibold text-primary text-sm group-hover:text-accent transition-colors">
-                    Read Journal Entry <ArrowRight className="w-4 h-4" />
+                </div>
+                <div className="w-full md:w-1/2 flex flex-col justify-between py-2">
+                  <div>
+                    <span className="text-xs text-gray-400 font-semibold uppercase tracking-wider block mb-3">{blogs[0].date}</span>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors leading-tight">
+                      {blogs[0].title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-6 text-base md:text-lg">
+                      {blogs[0].description}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between border-t border-gray-100 pt-6 mt-auto">
+                    <span className="text-sm font-semibold text-gray-900 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-full bg-accent flex items-center justify-center text-primary text-[10px] font-bold">A</span>
+                      {blogs[0].author}
+                    </span>
+                    <div className="inline-flex items-center gap-2 font-semibold text-primary text-sm group-hover:text-accent transition-colors">
+                      Read Journal Entry <ArrowRight className="w-4 h-4" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* Recent Articles Grid */}
@@ -98,27 +121,31 @@ export default function Blogs() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {blogs.slice(1).map((blog, index) => (
-                <div key={index} className="group border border-gray-100 rounded-3xl overflow-hidden p-6 hover:shadow-lg transition-all">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-gray-100 rounded-2xl mb-6">
-                    <img src={blog.image} alt={blog.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" />
-                    <span className="absolute top-4 left-4 px-3 py-1 bg-accent text-primary text-[11px] font-bold rounded-full uppercase tracking-wider">
-                      {blog.category}
-                    </span>
-                  </div>
-                  <span className="text-xs text-gray-400 font-semibold uppercase tracking-wider block mb-2">{blog.date}</span>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
-                    {blog.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                    {blog.description}
-                  </p>
-                  <div className="flex items-center justify-between border-t border-gray-100 pt-4">
-                    <span className="text-xs font-semibold text-gray-900">{blog.author}</span>
-                    <div className="inline-flex items-center gap-1.5 text-primary text-xs font-bold group-hover:text-accent transition-colors">
-                      View Entry <ArrowRight className="w-3.5 h-3.5" />
+                <Link key={index} href={`/knowledge/${blog.slug}`} className="block group">
+                  <div className="border border-gray-100 rounded-3xl overflow-hidden p-6 hover:shadow-lg transition-all h-full flex flex-col justify-between">
+                    <div>
+                      <div className="relative aspect-[16/10] overflow-hidden bg-gray-100 rounded-2xl mb-6">
+                        <img src={blog.image} alt={blog.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" />
+                        <span className="absolute top-4 left-4 px-3 py-1 bg-accent text-primary text-[11px] font-bold rounded-full uppercase tracking-wider">
+                          {blog.category}
+                        </span>
+                      </div>
+                      <span className="text-xs text-gray-400 font-semibold uppercase tracking-wider block mb-2">{blog.date}</span>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                        {blog.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                        {blog.description}
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between border-t border-gray-100 pt-4 mt-auto">
+                      <span className="text-xs font-semibold text-gray-900">{blog.author}</span>
+                      <div className="inline-flex items-center gap-1.5 text-primary text-xs font-bold group-hover:text-accent transition-colors">
+                        View Entry <ArrowRight className="w-3.5 h-3.5" />
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -135,7 +162,7 @@ export default function Blogs() {
                 <p className="text-sm text-gray-600 leading-relaxed mb-4">
                   A comprehensive guide for beginners stepping into computer vision. Explored real-time face detection, contours, and thresholding algorithms.
                 </p>
-                <Link href="/blogs" className="text-xs font-bold text-primary hover:text-accent transition-colors flex items-center gap-1.5">
+                <Link href="/knowledge/study-jams" className="text-xs font-bold text-primary hover:text-accent transition-colors flex items-center gap-1.5">
                   Read Workshop Notes <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
@@ -146,7 +173,7 @@ export default function Blogs() {
                 <p className="text-sm text-gray-600 leading-relaxed mb-4">
                   Discussed the importance of WCAG compliance, screen readers, and standard-compliant markup for building modern, inclusive web applications.
                 </p>
-                <Link href="/blogs" className="text-xs font-bold text-primary hover:text-accent transition-colors flex items-center gap-1.5">
+                <Link href="/knowledge/portfolio-session" className="text-xs font-bold text-primary hover:text-accent transition-colors flex items-center gap-1.5">
                   Read Lecture Notes <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
@@ -193,17 +220,19 @@ export default function Blogs() {
             </h3>
             <div className="space-y-4">
               {archiveItems.map((item, index) => (
-                <div key={index} className="flex items-center justify-between py-5 border-b border-gray-100 group hover:px-2 transition-all">
-                  <div className="flex items-center gap-6">
-                    <span className="text-sm font-semibold text-accent whitespace-nowrap">{item.date}</span>
-                    <h4 className="text-base md:text-lg font-bold text-gray-900 group-hover:text-primary transition-colors line-clamp-1">
-                      {item.title}
-                    </h4>
+                <Link key={index} href={`/knowledge/${item.slug}`} className="block group">
+                  <div className="flex items-center justify-between py-5 border-b border-gray-100 group-hover:px-2 transition-all">
+                    <div className="flex items-center gap-6">
+                      <span className="text-sm font-semibold text-accent whitespace-nowrap">{item.date}</span>
+                      <h4 className="text-base md:text-lg font-bold text-gray-900 group-hover:text-primary transition-colors line-clamp-1">
+                        {item.title}
+                      </h4>
+                    </div>
+                    <span className="hidden sm:inline-block px-3 py-1 bg-gray-50 border border-gray-200 text-gray-500 text-[10px] font-bold rounded-full uppercase tracking-wider">
+                      {item.category}
+                    </span>
                   </div>
-                  <span className="hidden sm:inline-block px-3 py-1 bg-gray-50 border border-gray-200 text-gray-500 text-[10px] font-bold rounded-full uppercase tracking-wider">
-                    {item.category}
-                  </span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

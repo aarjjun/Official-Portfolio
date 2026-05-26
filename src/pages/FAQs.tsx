@@ -3,8 +3,26 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import CTASection from "@/components/CTASection";
 import ContactForm from "@/components/ContactForm";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useSEO } from "@/hooks/useSEO";
+import SEO from "@/components/SEO";
 
 export default function FAQs() {
+  useSEO({
+    title: "Frequently Asked Questions",
+    description: "Got questions? Find answers to frequently asked questions about Arjun A's projects, IEEE leadership, community initiatives, mentoring, and technical stack.",
+    keywords: "FAQs Arjun, Questions Arjun A, Project Details, IEEE volunteering, Technical stack",
+    canonical: window.location.origin + "/faqs"
+  });
+
+  const pageData = {
+    title: "Frequently Asked Questions",
+    description: "Got questions? Find answers to frequently asked questions about Arjun A's projects, IEEE leadership, community initiatives, mentoring, and technical stack.",
+    breadcrumbs: [
+      { name: "Home", path: "/" },
+      { name: "FAQs", path: "/faqs" }
+    ]
+  };
+
   const faqs = [
     {
       q: "What kind of projects do you typically build?",
@@ -38,6 +56,7 @@ export default function FAQs() {
 
   return (
     <div className="bg-white">
+      <SEO schemaType="WebPage" data={pageData} />
       <PageHeader title="FAQs" />
       <MarqueeTicker />
       

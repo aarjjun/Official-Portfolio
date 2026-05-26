@@ -11,6 +11,7 @@ import Projects from "@/pages/Projects";
 import Blogs from "@/pages/Blogs";
 import Contact from "@/pages/Contact";
 import FAQs from "@/pages/FAQs";
+import BlogDetail from "@/pages/BlogDetail";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,6 +22,8 @@ function Router() {
       <Route path="/services" component={Services} />
       <Route path="/projects" component={Projects} />
       <Route path="/blogs" component={Blogs} />
+      <Route path="/blogs/:slug" component={BlogDetail} />
+      <Route path="/knowledge/:slug" component={BlogDetail} />
       <Route path="/contact" component={Contact} />
       <Route path="/faqs" component={FAQs} />
       <Route component={NotFound} />

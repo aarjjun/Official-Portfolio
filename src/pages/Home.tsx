@@ -12,10 +12,20 @@ import { Play, ArrowRight, Code, Users, Trophy, Calendar, BookOpen, Heart, Star,
 import { FaPython, FaReact } from "react-icons/fa";
 import { SiScikitlearn, SiFlask } from "react-icons/si";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useSEO } from "@/hooks/useSEO";
+import SEO from "@/components/SEO";
 
 export default function Home() {
+  useSEO({
+    title: "Arjun A | Project Builder • Community Leader • Problem Solver",
+    description: "Welcome to the official portfolio of Arjun A. Explore key projects, IEEE student leadership journey, community events, and tech insights.",
+    keywords: "Arjun A, Project Builder, Community Leader, Problem Solver, IEEE volunteer, IEEE YESS 2025, TocH, Student Leader, AI Projects",
+    canonical: window.location.origin + "/"
+  });
+
   return (
     <div className="bg-white">
+      <SEO schemaType="Person" />
       {/* HERO SECTION */}
       <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -59,7 +69,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-accent rounded-full scale-95 origin-bottom translate-y-8"></div>
                 {/* Image */}
                 <img 
-                  src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=800&q=80" 
+                  src="/imagesprof/hero.jpg" 
                   alt="Arjun A" 
                   className="relative z-10 w-full h-auto object-cover aspect-[4/5] rounded-[200px]"
                 />
@@ -160,7 +170,7 @@ export default function Home() {
               <div className="relative max-w-md mx-auto">
                 <div className="absolute inset-0 bg-accent rounded-[100px] scale-95 translate-x-4 translate-y-4"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80" 
+                  src="/imagesprof/whoami.jpg" 
                   alt="Arjun Organizing" 
                   className="relative z-10 w-full rounded-[100px] aspect-[3/4] object-cover"
                 />
@@ -241,19 +251,19 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ProjectCard 
-              image="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80"
-              tags={["AI / ML", "Accessibility"]}
-              title="AI Eye for the Blind"
+              image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80"
+              tags={["Deep Learning", "Python", "AI / ML"]}
+              title="DL Manager"
             />
             <ProjectCard 
-              image="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80"
-              tags={["AI System", "Digital Archive"]}
-              title="The Infinite Library of Forgotten Knowledge"
+              image="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80"
+              tags={["Computer Vision", "Safety AI", "Real-Time"]}
+              title="AI Hazard Detection"
             />
             <ProjectCard 
-              image="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80"
-              tags={["Chatbot", "Node.js"]}
-              title="Maveli GPT & Chat App"
+              image="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80"
+              tags={["Robotics", "ESP32", "Hardware", "IoT"]}
+              title="Mini Desk Robot using ESP32"
             />
           </div>
         </div>

@@ -1,2 +1,10 @@
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://arjunanoop.codes/sitemap.xml
+
+# Search Console Verification Placeholders
+# Google Search Console: google_verification_placeholder
+# Bing Webmaster: bing_verification_placeholder
+# IndexNow: indexnow_verification_placeholder
