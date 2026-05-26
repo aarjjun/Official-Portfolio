@@ -1,6 +1,5 @@
 import PageHeader from "@/components/PageHeader";
 import MarqueeTicker from "@/components/MarqueeTicker";
-import CTASection from "@/components/CTASection";
 import ContactForm from "@/components/ContactForm";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";

@@ -3,7 +3,6 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import CTASection from "@/components/CTASection";
 import ContactForm from "@/components/ContactForm";
 import { motion } from "framer-motion";
-import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
 import {

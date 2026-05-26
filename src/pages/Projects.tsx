@@ -14,7 +14,15 @@ export default function Projects() {
     canonical: window.location.origin + "/projects"
   });
 
-  const projects = [
+  interface ProjectItem {
+    image: string;
+    tags: string[];
+    title: string;
+    linkedinEmbed?: string;
+    externalLink?: string;
+  }
+
+  const projects: ProjectItem[] = [
     {
       image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
       tags: ["Deep Learning", "Python", "AI / ML"],

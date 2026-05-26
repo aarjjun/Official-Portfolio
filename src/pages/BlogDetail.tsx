@@ -1,5 +1,5 @@
 import { useRoute, Link } from "wouter";
-import { ArrowLeft, Clock, User, Calendar, BookOpen } from "lucide-react";
+import { ArrowLeft, Clock, User, Calendar } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import { useSEO } from "@/hooks/useSEO";
