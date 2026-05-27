@@ -5,6 +5,8 @@ import ContactForm from "@/components/ContactForm";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
 
 export default function FAQs() {
   useSEO({
@@ -85,12 +87,10 @@ export default function FAQs() {
             <h3 className="text-3xl font-bold text-gray-900 mb-8">
               Still have <span className="italic text-accent font-normal">questions?</span>
             </h3>
-            <a href="/contact" className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-accent hover:text-primary transition-colors">
+            <Link href="/contact" className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-accent hover:text-primary transition-colors">
               Contact Me
-              <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-primary">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-            </a>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>

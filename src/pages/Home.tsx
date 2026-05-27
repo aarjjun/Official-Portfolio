@@ -42,16 +42,16 @@ export default function Home() {
               <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-lg">
                 I build real-world projects, organize communities, lead technical initiatives and create experiences that connect technology with people.
               </p>
-              <div className="flex flex-wrap items-center gap-4">
-                <a href="/services" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-colors">
+              <div className="flex flex-col sm:flex-row flex-wrap items-center gap-4 w-full">
+                <Link href="/services" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-colors w-full sm:w-auto text-center">
                   Explore My Journey
-                </a>
-                <a href="/services#ieee-journey" className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary text-primary rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
+                </Link>
+                <Link href="/services#ieee-journey" className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary text-primary rounded-full font-bold hover:bg-primary hover:text-white transition-colors w-full sm:w-auto text-center">
                   Leadership & Impact
-                </a>
-                <a href="/projects" className="inline-flex items-center justify-center px-8 py-4 text-primary font-bold hover:text-accent transition-colors underline underline-offset-4">
+                </Link>
+                <Link href="/projects" className="inline-flex items-center justify-center px-8 py-4 text-primary font-bold hover:text-accent transition-colors underline underline-offset-4 w-full sm:w-auto text-center">
                   View Projects
-                </a>
+                </Link>
               </div>
             </motion.div>
 
@@ -337,10 +337,10 @@ export default function Home() {
                 Mentoring & <span className="italic text-accent font-normal">Sessions</span>
               </h2>
             </div>
-            <a href="/blogs" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-accent hover:text-primary transition-colors">
+            <Link href="/blogs" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-accent hover:text-primary transition-colors">
               View All Sessions
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <BlogCard 

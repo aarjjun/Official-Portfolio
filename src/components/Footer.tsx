@@ -60,12 +60,18 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Contact Info</h4>
+            <h4 className="text-lg font-bold mb-6">Contact & Socials</h4>
             <ul className="space-y-4">
-              <li className="text-white/70">
-                arjunanoop.codes@gmail.com
+              <li>
+                <a href="mailto:arjunanoop.codes@gmail.com" className="text-white/70 hover:text-accent transition-colors">Mail</a>
               </li>
-              <li className="text-white/70">
+              <li>
+                <a href="https://www.linkedin.com/in/arjunanoop/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-accent transition-colors">LinkedIn</a>
+              </li>
+              <li>
+                <a href="https://github.com/aarjjun" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-accent transition-colors">GitHub</a>
+              </li>
+              <li className="text-white/70 pt-2">
                 Kochi, Kerala, India
               </li>
               <li className="text-white/70">
@@ -78,8 +84,8 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/50 text-sm">
           <p>© {new Date().getFullYear()} Arjun A All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

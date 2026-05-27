@@ -67,7 +67,7 @@ export default function About() {
                   <p className="text-gray-500 text-sm">Hackathon Winner</p>
                 </div>
               </div>
-              <Link href="/services" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-accent hover:text-primary transition-colors">
+              <Link href="/services" className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-accent hover:text-primary transition-colors w-full sm:w-auto">
                 Explore My Journey <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

@@ -61,18 +61,18 @@ export default function ContactForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-900">Name*</label>
-              <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-primary outline-none" required />
+              <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-primary outline-none text-base" required />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-900">Email*</label>
-              <input type="email" placeholder="you@example.com" className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-primary outline-none" required />
+              <input type="email" placeholder="you@example.com" className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-primary outline-none text-base" required />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-900">Collaboration Type*</label>
-              <select className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-primary outline-none appearance-none" required>
+              <select className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-primary outline-none appearance-none text-base" required>
                 <option value="">Select Type</option>
                 <option value="project">Project Collaboration</option>
                 <option value="mentoring">Mentoring</option>
@@ -83,7 +83,7 @@ export default function ContactForm() {
             </div>
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-900">Domain</label>
-              <select className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-primary outline-none appearance-none">
+              <select className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-primary outline-none appearance-none text-base">
                 <option value="">Select Domain</option>
                 <option value="aiml">AI / Machine Learning</option>
                 <option value="web">Web Development</option>
@@ -96,7 +96,7 @@ export default function ContactForm() {
 
           <div className="space-y-2">
             <label className="text-sm font-semibold text-gray-900">Message*</label>
-            <textarea placeholder="Tell me about your idea or how we can collaborate..." rows={4} className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-primary outline-none resize-none" required></textarea>
+            <textarea placeholder="Tell me about your idea or how we can collaborate..." rows={4} className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-primary outline-none resize-none text-base" required></textarea>
           </div>
 
           <Button type="submit" className="w-full sm:w-auto bg-primary text-white hover:bg-accent hover:text-primary rounded-full px-8 py-6 font-bold flex items-center justify-center gap-2">
