@@ -1,6 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import ContactForm from "@/components/ContactForm";
+import Newsletter from "@/components/Newsletter";
 import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
 
@@ -48,6 +49,7 @@ export default function Contact() {
         </div>
       </section>
 
+      <Newsletter />
       <MarqueeTicker />
     </div>
   );
