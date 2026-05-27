@@ -18,40 +18,49 @@ export default function Projects() {
     image: string;
     tags: string[];
     title: string;
-    linkedinEmbed?: string;
+    description?: string;
     externalLink?: string;
   }
 
   const projects: ProjectItem[] = [
     {
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+      tags: ["Leadership", "Community", "IEEE"],
+      title: "IEEE YESS 2025 Journey",
+      description: "Led the organization of Kerala's largest student summit, uniting over 1000 participants for technical empowerment.",
+      externalLink: "https://www.linkedin.com/in/arjunanoop/"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80",
+      tags: ["Innovation", "Technology", "Web3"],
+      title: "Building the Future of Digital Archives",
+      description: "Developing The Infinite Library of Forgotten Knowledge using modern AI systems and decentralized principles.",
+      externalLink: "https://www.linkedin.com/in/arjunanoop/"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&q=80",
+      tags: ["Events", "Leadership", "Mentoring"],
+      title: "Empowering Students Through Tech Events",
+      description: "Organizing and leading workshops, hackathons, and technical sessions to bridge the gap between academia and industry.",
+      externalLink: "https://www.linkedin.com/in/arjunanoop/"
+    },
+    {
       image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
       tags: ["Deep Learning", "Python", "AI / ML"],
-      title: "DL Manager"
+      title: "DL Manager",
+      description: "A centralized deep learning management platform designed to streamline model training and evaluation."
     },
     {
       image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
       tags: ["Computer Vision", "Safety AI", "Real-Time"],
-      title: "AI Hazard Detection"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
-      tags: ["Robotics", "ESP32", "Hardware", "IoT"],
-      title: "Mini Desk Robot using ESP32"
+      title: "AI Hazard Detection",
+      description: "Real-time computer vision system built to detect and alert on industrial and environmental hazards."
     },
     {
       image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
       tags: ["AI / ML", "Accessibility", "Flask", "OpenCV"],
-      title: "AI Eye for the Blind"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80",
-      tags: ["Supabase", "AI System", "Digital Archive"],
-      title: "The Infinite Library of Forgotten Knowledge"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80",
-      tags: ["Chatbot", "Node.js", "Web App"],
-      title: "Maveli GPT & Chat App"
+      title: "AI Eye for the Blind",
+      description: "Assistive technology leveraging computer vision to provide environmental awareness for visually impaired individuals."
     }
   ];
 
@@ -79,7 +88,7 @@ export default function Projects() {
                 image={project.image}
                 tags={project.tags}
                 title={project.title}
-                linkedinEmbed={project.linkedinEmbed}
+                description={project.description}
                 externalLink={project.externalLink}
               />
             ))}

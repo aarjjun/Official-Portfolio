@@ -5,6 +5,7 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
 import BlogCard from "@/components/BlogCard";
+import Newsletter from "@/components/Newsletter";
 import { ArrowRight, Code, Users, Calendar, BookOpen, Star, Sparkles, Globe } from "lucide-react";
 import { FaPython, FaReact } from "react-icons/fa";
 import { SiFlask } from "react-icons/si";
@@ -337,7 +338,7 @@ export default function Home() {
                 Mentoring & <span className="italic text-accent font-normal">Sessions</span>
               </h2>
             </div>
-            <Link href="/blogs" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-accent hover:text-primary transition-colors">
+            <Link href="/knowledge" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-accent hover:text-primary transition-colors">
               View All Sessions
               <ArrowRight className="w-4 h-4" />
             </Link>
@@ -347,22 +348,25 @@ export default function Home() {
               image="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=800&q=80" 
               category="Web Dev" 
               date="Recent Session" 
-              title="Portfolio Website Development Session" 
+              title="Teaching Portfolio Development Through Study Jams" 
               description="Conducted hands-on session teaching students portfolio planning, HTML, CSS, JavaScript, and responsive design." 
+              slug="teaching-portfolio-through-study-jams"
             />
             <BlogCard 
               image="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80" 
               category="Tools" 
               date="Workshop" 
-              title="Introduction to No-Code Platforms" 
+              title="Introducing No-Code Tools to Students" 
               description="Introduced students to various no-code tools to accelerate prototyping and application building." 
+              slug="introducing-no-code-tools-to-students"
             />
             <BlogCard 
               image="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800&q=80" 
               category="Community" 
               date="Ongoing" 
-              title="Study Jams & Junior Mentoring" 
+              title="Building Communities Through Learning Sessions" 
               description="Community learning initiatives supporting students in projects, hackathons, and technical growth." 
+              slug="building-communities-through-learning-sessions"
             />
           </div>
         </div>
@@ -381,6 +385,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Newsletter />
       <MarqueeTicker />
 
     </div>

@@ -36,7 +36,7 @@ export default function About() {
               <div className="relative max-w-md mx-auto">
                 <div className="absolute inset-0 bg-accent rounded-[100px] scale-95 translate-x-4 translate-y-4"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80" 
+                  src="/imagesprof/whoami.jpg" 
                   alt="Arjun A" 
                   className="relative z-10 w-full rounded-[100px] aspect-[3/4] object-cover"
                 />

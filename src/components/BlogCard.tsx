@@ -9,15 +9,16 @@ interface BlogCardProps {
   title: string;
   description: string;
   author?: string;
+  slug?: string;
 }
 
-export default function BlogCard({ image, category, date, title, description, author = "Arjun A" }: BlogCardProps) {
+export default function BlogCard({ image, category, date, title, description, author = "Arjun A", slug }: BlogCardProps) {
   return (
     <motion.div 
       whileHover={{ y: -5 }}
       className="group bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all"
     >
-      <Link href="/blogs">
+      <Link href={slug ? `/knowledge/${slug}` : "/knowledge"}>
         <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
           <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
           <div className="absolute top-4 left-4">

@@ -229,26 +229,48 @@ export default function Leadership() {
               Wins & <span className="italic text-accent font-normal">Recognition</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {achievements.map((a, i) => (
-              <motion.div
-                key={i}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={cardVariants}
-                whileHover={{ y: -5 }}
-                className="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all group"
-              >
-                <div className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                  {a.icon}
-                </div>
-                <span className="inline-block px-3 py-1 bg-accent/20 text-primary text-xs font-bold rounded-full mb-4">{a.tag}</span>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{a.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm">{a.desc}</p>
-              </motion.div>
-            ))}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Vertical Line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/5 via-primary/20 to-primary/5 -translate-x-1/2"></div>
+            
+            <div className="space-y-12">
+              {achievements.map((a, i) => (
+                <motion.div
+                  key={i}
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                  }}
+                  className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-16 ${i % 2 === 0 ? "md:flex-row-reverse" : ""}`}
+                >
+                  {/* Timeline Node */}
+                  <div className="absolute left-8 md:left-1/2 w-12 h-12 bg-white rounded-full border-4 border-[#f7f7f7] shadow-lg flex items-center justify-center -translate-x-1/2 text-accent z-10">
+                    <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center">
+                      {a.icon}
+                    </div>
+                  </div>
+
+                  {/* Empty space for alternating layout */}
+                  <div className="hidden md:block md:w-1/2"></div>
+
+                  {/* Card Content */}
+                  <div className={`w-full md:w-1/2 pl-24 md:pl-0 ${i % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16 md:text-left"}`}>
+                    <div className="bg-white p-8 rounded-[32px] border border-gray-100 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 group relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="relative z-10">
+                        <span className="inline-block px-4 py-1.5 bg-accent/10 text-primary text-xs font-bold rounded-full mb-4 uppercase tracking-wider">{a.tag}</span>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">{a.title}</h3>
+                        <p className="text-gray-600 leading-relaxed text-base">{a.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

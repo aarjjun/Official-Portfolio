@@ -3,46 +3,21 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, Terminal } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import Newsletter from "@/components/Newsletter";
 import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
+
+import { ARTICLES } from "@/lib/data";
 
 export default function Blogs() {
   useSEO({
     title: "Knowledge Journal & Blog",
     description: "Read insights, workshop summaries, and volunteering narratives written by Arjun A.",
     keywords: "Arjun A Blog, Knowledge Journal, IEEE YESS 2025, Web Development, Study Jams, Mentorship",
-    canonical: window.location.origin + "/blogs"
+    canonical: window.location.origin + "/knowledge"
   });
 
-  const blogs = [
-    {
-      slug: "ieee-yess-experience",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
-      category: "Leadership • IEEE • Community Impact",
-      date: "January 2025",
-      title: "IEEE YESS 2025 Journey: Empowering the Next Generation of Engineers",
-      description: "First-person reflections on organizing IEEE YESS 2025, coordinating Kerala's largest student summit, and driving youth empowerment in tech.",
-      author: "Arjun A"
-    },
-    {
-      slug: "portfolio-session",
-      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&q=80",
-      category: "Mentoring & Technical Sessions",
-      date: "March 2026",
-      title: "Portfolio Website Development Session",
-      description: "Conducted a hands-on session teaching students portfolio planning, HTML, CSS, JavaScript, and responsive design principles.",
-      author: "Arjun A"
-    },
-    {
-      slug: "study-jams",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
-      category: "Community & Peer Learning",
-      date: "Ongoing",
-      title: "Study Jams & Junior Mentoring",
-      description: "Community learning initiatives and 1:1 sessions supporting junior students in their academic projects, hackathons, and technical growth.",
-      author: "Arjun A"
-    }
-  ];
+  const blogs = Object.values(ARTICLES);
 
   const archiveItems = [
     { date: "Oct 2024", title: "Reflections on Leading TocH IEEE Computer Society", category: "Leadership", slug: "ieee-yess-experience" },
@@ -240,6 +215,7 @@ export default function Blogs() {
         </div>
       </section>
 
+      <Newsletter />
       <CTASection />
     </div>
   );

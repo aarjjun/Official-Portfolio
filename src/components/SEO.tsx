@@ -29,12 +29,25 @@ export default function SEO({ schemaType, data }: SEOComponentProps) {
         "https://github.com/aarjjun"
       ],
       "jobTitle": [
-        "Student Leader",
-        "IEEE Volunteer",
+        "Student Representative, IEEE Kerala Section",
         "Project Builder",
-        "Community Organizer"
+        "Community Leader"
       ],
-      "description": "Project Builder, Student Leader, and Community Organizer building practical technology and leading volunteering initiatives."
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "TocH Institute of Science and Technology"
+      },
+      "memberOf": [
+        {
+          "@type": "Organization",
+          "name": "IEEE Kerala Section"
+        },
+        {
+          "@type": "Organization",
+          "name": "IEEE Kochi Hub"
+        }
+      ],
+      "description": "Project Builder, Community Leader, and Problem Solver from TocH Institute, actively representing students in IEEE Kerala Section."
     };
 
     let finalSchema: any = basePerson;
