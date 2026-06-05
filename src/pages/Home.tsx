@@ -10,20 +10,17 @@ import { ArrowRight, Code, Users, Calendar, BookOpen, Star, Sparkles, Globe } fr
 import { FaPython, FaReact } from "react-icons/fa";
 import { SiFlask } from "react-icons/si";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
 
 export default function Home() {
-  useSEO({
-    title: "Arjun A | Project Builder • Community Leader • Problem Solver",
-    description: "Welcome to the official portfolio of Arjun A. Explore key projects, IEEE student leadership journey, community events, and tech insights.",
-    keywords: "Arjun A, Project Builder, Community Leader, Problem Solver, IEEE volunteer, IEEE YESS 2025, TocH, Student Leader, AI Projects",
-    canonical: window.location.origin + "/"
-  });
-
   return (
     <div className="bg-white">
-      <SEO schemaType="Person" />
+      <SEO 
+        schemaType="Person" 
+        title="Arjun A | Project Builder • Community Leader • Problem Solver"
+        description="Welcome to the official portfolio of Arjun A. Explore key projects, IEEE student leadership journey, community events, and tech insights."
+        keywords="Arjun A, Project Builder, Community Leader, Problem Solver, IEEE volunteer, IEEE YESS 2025, TocH, Student Leader, AI Projects"
+      />
       {/* HERO SECTION */}
       <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -198,10 +195,10 @@ export default function Home() {
               </div>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
-                I am a B.Tech student at TocH Institute of Science and Technology with interests spanning AI, web development, product building, leadership, innovation and community engagement.
+                I am a Project Builder and Technical Leader currently pursuing my B.Tech at TocH Institute of Science and Technology. My expertise lies at the intersection of AI development, web technologies, and scaling student communities.
               </p>
               <p className="text-gray-600 mb-10 leading-relaxed">
-                Beyond development, I actively contribute to student communities, lead technical initiatives, organize events and mentor peers. I enjoy transforming ideas into products, building experiences and creating opportunities for communities.
+                Beyond writing code, I hold prominent leadership roles within the IEEE Kerala Section, driving technical initiatives that empower thousands. From winning hackathons to organizing major tech summits, my focus is always on execution and real-world impact.
               </p>
 
               <Link href="/services" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-accent hover:text-primary transition-colors">

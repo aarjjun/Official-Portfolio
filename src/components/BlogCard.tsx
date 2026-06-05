@@ -20,7 +20,7 @@ export default function BlogCard({ image, category, date, title, description, au
     >
       <Link href={slug ? `/knowledge/${slug}` : "/knowledge"}>
         <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
-          <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <img src={image} alt={title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
           <div className="absolute top-4 left-4">
             <span className="px-4 py-1.5 bg-accent text-primary text-xs font-bold rounded-full">
               {category}

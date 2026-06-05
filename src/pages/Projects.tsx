@@ -3,16 +3,9 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import CTASection from "@/components/CTASection";
 import ContactForm from "@/components/ContactForm";
 import ProjectCard from "@/components/ProjectCard";
-import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
 
 export default function Projects() {
-  useSEO({
-    title: "Projects Portfolio",
-    description: "Explore the technical projects, AI tools, and student volunteering showcases built by Arjun A.",
-    keywords: "Arjun A Projects, AI Eye for the Blind, Maveli GPT, IEEE YESS 2025, Student Innovation, TocH",
-    canonical: window.location.origin + "/projects"
-  });
 
   interface ProjectItem {
     image: string;
@@ -75,7 +68,12 @@ export default function Projects() {
 
   return (
     <div className="bg-white">
-      <SEO schemaType="WebPage" data={pageData} />
+      <SEO 
+        schemaType="CollectionPage"
+        title="Projects Portfolio | Arjun A"
+        description="Explore the technical projects, AI tools, and student volunteering showcases built by Arjun A."
+        keywords="Arjun A Projects, AI Eye for the Blind, Maveli GPT, IEEE YESS 2025, Student Innovation, TocH"
+      />
       <PageHeader title="Featured Projects" />
       <MarqueeTicker />
       

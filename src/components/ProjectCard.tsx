@@ -16,7 +16,7 @@ export default function ProjectCard({ image, tags, title, externalLink, descript
       <div>
         <div className="relative overflow-hidden rounded-2xl mb-4 bg-gray-100 aspect-[16/10] border border-gray-100 shadow-sm">
           {image ? (
-            <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <img src={image} alt={title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
           ) : (
             <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">No Image</div>
           )}

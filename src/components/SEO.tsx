@@ -1,11 +1,25 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 interface SEOComponentProps {
-  schemaType?: "Person" | "Project" | "Article" | "WebPage" | "Blog";
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  keywords?: string;
+  schemaType?: "Person" | "Project" | "Article" | "WebPage" | "Blog" | "CollectionPage" | "ItemList" | "ProfilePage" | "FAQPage" | "ContactPage";
   data?: any;
 }
 
-export default function SEO({ schemaType, data }: SEOComponentProps) {
+export default function SEO({ 
+  title = "Arjun A — Project Builder • Community Leader • Problem Solver", 
+  description = "Building products, leading communities and creating meaningful impact through technology. Portfolio of Arjun A — IEEE volunteer, hackathon winner, and community organizer.", 
+  image = "/imagesprof/hero.jpg", 
+  url = typeof window !== "undefined" ? window.location.href : "https://imarjunofficial.onrender.com",
+  keywords = "Arjun A, Project Builder, Community Leader, Problem Solver, IEEE volunteer, IEEE YESS 2025, TocH, Student Leader, AI Projects",
+  schemaType, 
+  data 
+}: SEOComponentProps) {
   useEffect(() => {
     // We inject JSON-LD dynamically into the document head
     const scriptId = `json-ld-${schemaType || "base"}`;
@@ -30,8 +44,13 @@ export default function SEO({ schemaType, data }: SEOComponentProps) {
       ],
       "jobTitle": [
         "Student Representative, IEEE Kerala Section",
+        "Former Lead, IEEE Kochi Hub",
+        "Former Co-HSR, IEEE LINK Kochi Subsection",
+        "Technical Coordinator, IEEE Computer Society",
+        "LINK Representative, TocH IEEE Student Branch",
         "Project Builder",
-        "Community Leader"
+        "Community Leader",
+        "Problem Solver"
       ],
       "alumniOf": {
         "@type": "CollegeOrUniversity",
@@ -47,7 +66,7 @@ export default function SEO({ schemaType, data }: SEOComponentProps) {
           "name": "IEEE Kochi Hub"
         }
       ],
-      "description": "Project Builder, Community Leader, and Problem Solver from TocH Institute, actively representing students in IEEE Kerala Section."
+      "description": "Project Builder, Community Leader, and Problem Solver from TocH Institute, actively representing students in IEEE Kerala Section. AI enthusiast, organizer, and developer."
     };
 
     let finalSchema: any = basePerson;
@@ -71,7 +90,7 @@ export default function SEO({ schemaType, data }: SEOComponentProps) {
         "@type": "BlogPosting",
         "headline": data.title,
         "description": data.description,
-        "image": data.image ? (data.image.startsWith("http") ? data.image : window.location.origin + data.image) : undefined,
+        "image": data.image ? (data.image.startsWith("http") ? data.image : window.location.origin + data.image) : window.location.origin + "/imagesprof/hero.jpg",
         "datePublished": data.datePublished || new Date().toISOString(),
         "author": {
           "@type": "Person",
@@ -126,6 +145,46 @@ export default function SEO({ schemaType, data }: SEOComponentProps) {
           "url": window.location.origin + post.path
         }))
       };
+    } else if (schemaType === "CollectionPage" || schemaType === "ItemList") {
+       finalSchema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Arjun A - Projects Portfolio",
+        "description": "Explore the technical projects, AI tools, and student volunteering showcases built by Arjun A.",
+        "url": window.location.href,
+        "author": {
+          "@type": "Person",
+          "name": "Arjun A"
+        }
+       };
+    } else if (schemaType === "ProfilePage") {
+       finalSchema = {
+         "@context": "https://schema.org",
+         "@type": "ProfilePage",
+         "mainEntity": basePerson
+       };
+    } else if (schemaType === "ContactPage") {
+       finalSchema = {
+         "@context": "https://schema.org",
+         "@type": "ContactPage",
+         "name": "Contact Arjun A",
+         "description": "Get in touch with Arjun A for projects, collaborations, and community building.",
+         "url": window.location.href,
+         "mainEntity": basePerson
+       }
+    } else if (schemaType === "FAQPage" && data) {
+      finalSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": (data.faqs || []).map((faq: any) => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+          }
+        }))
+      }
     }
 
     script.textContent = JSON.stringify(finalSchema, null, 2);
@@ -137,5 +196,30 @@ export default function SEO({ schemaType, data }: SEOComponentProps) {
     };
   }, [schemaType, data]);
 
-  return null;
+  const fullImageUrl = typeof window !== "undefined" && image.startsWith("http") ? image : (typeof window !== "undefined" ? window.location.origin + image : image);
+
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      
+      {/* Canonical URL */}
+      <link rel="canonical" href={url} />
+
+      {/* Open Graph / Facebook / LinkedIn */}
+      <meta property="og:type" content={schemaType === "Article" ? "article" : "website"} />
+      <meta property="og:url" content={url} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={fullImageUrl} />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={url} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={fullImageUrl} />
+    </Helmet>
+  );
 }

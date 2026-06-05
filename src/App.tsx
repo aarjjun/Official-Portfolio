@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
@@ -36,19 +37,21 @@ function Router() {
 
 function App() {
   return (
-    <TooltipProvider>
-      <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-        <ScrollToTop />
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-1">
-            <Router />
-          </main>
-          <Footer />
-        </div>
-      </WouterRouter>
-      <Toaster />
-    </TooltipProvider>
+    <HelmetProvider>
+      <TooltipProvider>
+        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <ScrollToTop />
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-1">
+              <Router />
+            </main>
+            <Footer />
+          </div>
+        </WouterRouter>
+        <Toaster />
+      </TooltipProvider>
+    </HelmetProvider>
   );
 }
 

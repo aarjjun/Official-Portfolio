@@ -3,7 +3,6 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import CTASection from "@/components/CTASection";
 import ContactForm from "@/components/ContactForm";
 import { motion } from "framer-motion";
-import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
 import {
   Users, Trophy, Calendar, BookOpen, Heart, Code2,
@@ -24,12 +23,6 @@ function TimelineDot() {
 }
 
 export default function Leadership() {
-  useSEO({
-    title: "Leadership & Impact",
-    description: "Explore Arjun A's leadership roles in IEEE Kerala Section, community activities, achievements, hackathons, and mentoring initiatives.",
-    keywords: "IEEE Volunteer, Student Leadership, Hackathon Wins, Community Impact, Organised Events, Mentoring",
-    canonical: window.location.origin + "/services"
-  });
 
   const pageData = {
     title: "Leadership & Impact",
@@ -45,31 +38,31 @@ export default function Leadership() {
       period: "Present Role",
       org: "IEEE Kerala Section",
       role: "Student Representative",
-      desc: "Representing students and contributing to statewide IEEE initiatives and activities."
+      desc: "Representing students and contributing to statewide IEEE initiatives, driving technical engagement across the section."
     },
     {
-      period: "Past Role (2025)",
+      period: "Past Role",
       org: "IEEE Kochi Hub",
-      role: "Lead",
-      desc: "Led collaborations, hub initiatives and volunteer activities. Coordinated volunteer engagement."
+      role: "Former Lead",
+      desc: "Directed collaborations and hub initiatives. Coordinated large-scale volunteer engagement and strategic growth."
     },
     {
       period: "Present Role",
       org: "IEEE Computer Society",
       role: "Technical Coordinator",
-      desc: "Responsible for technical programs, community sessions, student activities, and technology initiatives."
+      desc: "Architecting technical programs, community learning sessions, and high-impact technology initiatives for student members."
     },
     {
       period: "Present Role",
       org: "TocH IEEE Student Branch",
       role: "LINK Representative",
-      desc: "Handling coordination, student communication, volunteer engagement, and program activities."
+      desc: "Managing core coordination, student communication, and driving program activities to boost active branch participation."
     },
     {
       period: "Past Role",
       org: "IEEE LINK Kochi Subsection",
-      role: "Co-HSR",
-      desc: "Provided volunteer support, organized community activities, and managed overall coordination."
+      role: "Former Co-HSR",
+      desc: "Engineered volunteer support structures and managed overall coordination for regional community activities."
     }
   ];
 
@@ -90,7 +83,7 @@ export default function Leadership() {
       reach: "5500+ Participants",
       venue: "NIT Calicut",
       role: "Organizer / Leadership Team",
-      desc: "Large-scale IEEE event connecting students, leaders and communities.",
+      desc: "Orchestrated Kerala's largest student summit, uniting thousands of tech enthusiasts for comprehensive technical empowerment.",
       highlight: true
     },
     {
@@ -98,28 +91,28 @@ export default function Leadership() {
       reach: "Community Event",
       venue: "Regional",
       role: "Volunteer / Organizer",
-      desc: "Contributed to community activities and event execution."
+      desc: "Facilitated community activities, ensuring seamless event execution and high attendee engagement."
     },
     {
       name: "DevFest 2024",
       reach: "Community Event",
       venue: "Regional",
       role: "Volunteer",
-      desc: "Supported event activities and engagement initiatives."
+      desc: "Supported widespread developer engagement initiatives and technical session operations."
     },
     {
       name: "Envigor",
       reach: "Technical Fest",
       venue: "Sahrdaya Institute of Science & Technology",
       role: "Organizer",
-      desc: "Helped organize and execute the technical festival."
+      desc: "Executed complex technical events and logistical planning for a major inter-college festival."
     },
     {
       name: "Renaissance",
       reach: "Cultural & Tech Fest",
       venue: "Muthoot Institute of Technology and Science",
       role: "Organizer",
-      desc: "Coordinated events and activities for the festival."
+      desc: "Coordinated multifaceted events, bridging technical showcases with broader student participation."
     }
   ];
 
@@ -131,20 +124,26 @@ export default function Leadership() {
   ];
 
   const extracurricular = [
-    { icon: <Star className="w-6 h-6" />, title: "IEEE Leadership", desc: "Actively leading initiatives at Section, Hub, and Student Branch levels.", isHighlighted: true },
-    { icon: <Zap className="w-6 h-6" />, title: "Hackathons", desc: "Regular participant and winner in various technical hackathons." },
-    { icon: <Globe className="w-6 h-6" />, title: "Community Building", desc: "Fostering growth in communities like IEEE, GDG, and TinkerHub." },
-    { icon: <Heart className="w-6 h-6" />, title: "Volunteering", desc: "Dedicating time to support events and student initiatives." },
-    { icon: <Users className="w-6 h-6" />, title: "Student Leadership", desc: "Representing student interests and driving engagement." },
-    { icon: <Target className="w-6 h-6" />, title: "Networking", desc: "Building connections with peers, mentors, and industry professionals." },
-    { icon: <Award className="w-6 h-6" />, title: "Innovation Programs", desc: "Participating in ideathons and innovation challenges." },
-    { icon: <Calendar className="w-6 h-6" />, title: "Technical Events", desc: "Organizing and attending tech talks, workshops, and symposiums." },
-    { icon: <BookOpen className="w-6 h-6" />, title: "Mentoring & Workshops", desc: "Sharing knowledge through structured sessions and 1:1 guidance." }
+    { icon: <Star className="w-6 h-6" />, title: "IEEE Leadership", desc: "Driving measurable impact at Section, Hub, and Student Branch levels.", isHighlighted: true },
+    { icon: <Zap className="w-6 h-6" />, title: "Hackathons", desc: "3× Winner delivering high-pressure prototype solutions." },
+    { icon: <Globe className="w-6 h-6" />, title: "Community Building", desc: "Scaling ecosystems across IEEE, GDG, and TinkerHub." },
+    { icon: <Heart className="w-6 h-6" />, title: "Volunteering", desc: "Dedicating countless hours to technical literacy and student empowerment." },
+    { icon: <Users className="w-6 h-6" />, title: "Student Leadership", desc: "Advocating for student interests and orchestrating 5500+ reach events." },
+    { icon: <Target className="w-6 h-6" />, title: "Strategic Execution", desc: "Transforming ambitious technical ideas into executed, real-world products." },
+    { icon: <Award className="w-6 h-6" />, title: "Innovation Programs", desc: "Validating concepts through rigorous ideathons and tech challenges." },
+    { icon: <Calendar className="w-6 h-6" />, title: "Event Architecture", desc: "Designing and scaling workshops, tech talks, and regional symposiums." },
+    { icon: <BookOpen className="w-6 h-6" />, title: "Mentoring & Workshops", desc: "Elevating peers through dedicated 1:1 guidance and structured skill-building." }
   ];
 
   return (
     <div className="bg-white">
-      <SEO schemaType="WebPage" data={pageData} />
+      <SEO 
+        schemaType="WebPage" 
+        title="Leadership & Impact | Arjun A"
+        description="Explore Arjun A's leadership roles in IEEE Kerala Section, community activities, achievements, hackathons, and mentoring initiatives."
+        keywords="IEEE Volunteer, Student Leadership, Hackathon Wins, Community Impact, Organised Events, Mentoring"
+        data={pageData} 
+      />
       <PageHeader title="Leadership & Impact" />
       <MarqueeTicker />
 

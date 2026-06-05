@@ -3,16 +3,9 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import ContactForm from "@/components/ContactForm";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
-import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
 
 export default function About() {
-  useSEO({
-    title: "About Me",
-    description: "Discover Arjun A's background as a Student Representative at IEEE Kerala Section, hackathon winner, community leader, and technical organizer.",
-    keywords: "Arjun A, About Arjun, IEEE Leadership, Student Leader, B.Tech TocH, Hackathon Winner",
-    canonical: window.location.origin + "/about"
-  });
 
   const pageData = {
     title: "About Me",
@@ -25,7 +18,12 @@ export default function About() {
 
   return (
     <div className="bg-white">
-      <SEO schemaType="WebPage" data={pageData} />
+      <SEO 
+        schemaType="ProfilePage" 
+        title="About Me | Arjun A"
+        description="Discover Arjun A's background as a Student Representative at IEEE Kerala Section, hackathon winner, community leader, and technical organizer."
+        keywords="Arjun A, About Arjun, IEEE Leadership, Student Leader, B.Tech TocH, Hackathon Winner"
+      />
       <PageHeader title="About Me" />
       <MarqueeTicker />
       
@@ -48,10 +46,10 @@ export default function About() {
                 Who is <span className="italic text-accent font-normal">Arjun A?</span>
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                I am a B.Tech student at TocH Institute of Science and Technology with interests spanning AI, web development, product building, leadership, innovation and community engagement. My journey goes beyond development—I focus on building solutions, empowering students, and creating impact.
+                As a B.Tech student at TocH Institute of Science and Technology, I bridge the gap between technical engineering and community empowerment. My expertise spans AI product building, full-stack web development, and orchestrating large-scale student initiatives. I don't just write code—I build scalable solutions that create measurable impact.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Beyond development, I actively contribute to student communities, lead technical initiatives, organize events and mentor peers. I enjoy transforming ideas into products, building experiences and creating opportunities for communities across IEEE, GDG, and TinkerHub.
+                Serving in multiple leadership capacities across IEEE Kerala Section, GDG, and TinkerHub, I have directed technical summits reaching over 5500+ participants. Whether I'm competing in high-pressure hackathons or mentoring junior developers, my mission is to transform ambitious ideas into executed realities.
               </p>
               <div className="flex flex-wrap gap-8 pt-8 mb-8 border-t border-gray-100">
                 <div>

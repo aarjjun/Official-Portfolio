@@ -4,18 +4,11 @@ import { Link } from "wouter";
 import { ArrowRight, BookOpen, Terminal } from "lucide-react";
 import CTASection from "@/components/CTASection";
 import Newsletter from "@/components/Newsletter";
-import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
 
 import { ARTICLES } from "@/lib/data";
 
 export default function Blogs() {
-  useSEO({
-    title: "Knowledge Journal & Blog",
-    description: "Read insights, workshop summaries, and volunteering narratives written by Arjun A.",
-    keywords: "Arjun A Blog, Knowledge Journal, IEEE YESS 2025, Web Development, Study Jams, Mentorship",
-    canonical: window.location.origin + "/knowledge"
-  });
 
   const blogs = Object.values(ARTICLES);
 
@@ -36,7 +29,13 @@ export default function Blogs() {
 
   return (
     <div className="bg-white">
-      <SEO schemaType="Blog" data={blogSchemaData} />
+      <SEO 
+        schemaType="Blog" 
+        data={blogSchemaData} 
+        title="Knowledge Journal & Blog | Arjun A"
+        description="Read insights, workshop summaries, and volunteering narratives written by Arjun A."
+        keywords="Arjun A Blog, Knowledge Journal, IEEE YESS 2025, Web Development, Study Jams, Mentorship"
+      />
       <PageHeader title="Knowledge Hub" />
       <MarqueeTicker />
       

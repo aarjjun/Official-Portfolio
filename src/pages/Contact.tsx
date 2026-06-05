@@ -2,16 +2,9 @@ import PageHeader from "@/components/PageHeader";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import ContactForm from "@/components/ContactForm";
 import Newsletter from "@/components/Newsletter";
-import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
 
 export default function Contact() {
-  useSEO({
-    title: "Contact Me",
-    description: "Get in touch with Arjun A for collaboration, speaking opportunities, mentoring, or technical project discussions. Drop a message here.",
-    keywords: "Contact Arjun, Collaboration, Speaking, Hackathons, Mentoring, Kerala",
-    canonical: window.location.origin + "/contact"
-  });
 
   const pageData = {
     title: "Contact Me",
@@ -24,7 +17,12 @@ export default function Contact() {
 
   return (
     <div className="bg-white">
-      <SEO schemaType="WebPage" data={pageData} />
+      <SEO 
+        schemaType="ContactPage" 
+        title="Contact Me | Arjun A"
+        description="Get in touch with Arjun A for collaboration, speaking opportunities, mentoring, or technical project discussions. Drop a message here."
+        keywords="Contact Arjun, Collaboration, Speaking, Hackathons, Mentoring, Kerala"
+      />
       <PageHeader title="Contact Me" />
       <MarqueeTicker />
       

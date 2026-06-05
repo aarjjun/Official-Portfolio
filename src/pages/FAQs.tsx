@@ -3,18 +3,11 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import CTASection from "@/components/CTASection";
 import ContactForm from "@/components/ContactForm";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 
 export default function FAQs() {
-  useSEO({
-    title: "Frequently Asked Questions",
-    description: "Got questions? Find answers to frequently asked questions about Arjun A's projects, IEEE leadership, community initiatives, mentoring, and technical stack.",
-    keywords: "FAQs Arjun, Questions Arjun A, Project Details, IEEE volunteering, Technical stack",
-    canonical: window.location.origin + "/faqs"
-  });
 
   const pageData = {
     title: "Frequently Asked Questions",
@@ -58,7 +51,13 @@ export default function FAQs() {
 
   return (
     <div className="bg-white">
-      <SEO schemaType="WebPage" data={pageData} />
+      <SEO 
+        schemaType="FAQPage" 
+        data={{ faqs }} 
+        title="Frequently Asked Questions | Arjun A"
+        description="Got questions? Find answers to frequently asked questions about Arjun A's projects, IEEE leadership, community initiatives, mentoring, and technical stack."
+        keywords="FAQs Arjun, Questions Arjun A, Project Details, IEEE volunteering, Technical stack"
+      />
       <PageHeader title="FAQs" />
       <MarqueeTicker />
       

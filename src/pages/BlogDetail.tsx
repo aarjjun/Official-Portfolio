@@ -2,7 +2,6 @@ import { Link, useParams } from "wouter";
 import { ArrowLeft, Clock, User, Calendar } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import MarqueeTicker from "@/components/MarqueeTicker";
-import { useSEO } from "@/hooks/useSEO";
 import SEO from "@/components/SEO";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -36,18 +35,17 @@ export default function BlogDetail() {
 
   const readingTime = calculateReadingTime(article.content);
 
-  // SEO Hook call
-  useSEO({
-    title: article.title,
-    description: article.description,
-    keywords: `Arjun A Blog, ${article.category}, ${article.title}, IEEE, Web Dev, Study Jams, Mentoring`,
-    canonical: window.location.origin + `/knowledge/${article.slug}`,
-    ogType: "article"
-  });
-
   return (
     <div className="bg-white">
-      <SEO schemaType="Article" data={article} />
+      <SEO 
+        schemaType="Article" 
+        data={article} 
+        title={`${article.title} | Arjun A`}
+        description={article.description}
+        keywords={`Arjun A Blog, ${article.category}, ${article.title}, IEEE, Web Dev, Study Jams, Mentoring`}
+        url={typeof window !== "undefined" ? window.location.href : `https://imarjunofficial.onrender.com/knowledge/${article.slug}`}
+        image={article.image}
+      />
       <PageHeader title={article.category} />
       <MarqueeTicker />
 

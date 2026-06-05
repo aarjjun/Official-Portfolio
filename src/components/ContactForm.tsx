@@ -14,16 +14,24 @@ export default function ContactForm() {
     e.preventDefault();
     if (!formRef.current) return;
 
+    // Honeypot spam protection
+    const formData = new FormData(formRef.current);
+    if (formData.get('website')) {
+      // Silent success for bots
+      setIsSuccess(true);
+      formRef.current.reset();
+      return;
+    }
+
     setIsSubmitting(true);
     setError(null);
 
     try {
-      // NOTE: User must replace these with their actual EmailJS keys!
       await emailjs.sendForm(
-        'service_zjhxq1o', 
-        'template_k37f69c', 
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
         formRef.current, 
-        'FidfnQ39XW1Dmp0XH'
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
       
       setIsSuccess(true);
@@ -59,7 +67,7 @@ export default function ContactForm() {
             </div>
             <div>
               <p className="text-sm text-gray-500 mb-1">Email Me</p>
-              <a href="mailto:arjunanoop.codes@gmail.com" className="font-bold text-gray-900 hover:text-primary transition-colors">arjunanoop.codes@gmail.com</a>
+              <a href="mailto:arjunanoop.codes@gmail.com" aria-label="Send an email to Arjun" className="font-bold text-gray-900 hover:text-primary transition-colors">arjunanoop.codes@gmail.com</a>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -68,7 +76,7 @@ export default function ContactForm() {
             </div>
             <div>
               <p className="text-sm text-gray-500 mb-1">LinkedIn</p>
-              <a href="https://www.linkedin.com/in/arjunanoop/" target="_blank" rel="noopener noreferrer" className="font-bold text-gray-900 hover:text-primary transition-colors">linkedin.com/in/arjunanoop</a>
+              <a href="https://www.linkedin.com/in/arjunanoop/" aria-label="Visit Arjun's LinkedIn profile" target="_blank" rel="noopener noreferrer" className="font-bold text-gray-900 hover:text-primary transition-colors">linkedin.com/in/arjunanoop</a>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -77,7 +85,7 @@ export default function ContactForm() {
             </div>
             <div>
               <p className="text-sm text-gray-500 mb-1">GitHub</p>
-              <a href="https://github.com/aarjjun" target="_blank" rel="noopener noreferrer" className="font-bold text-gray-900 hover:text-primary transition-colors">github.com/aarjjun</a>
+              <a href="https://github.com/aarjjun" aria-label="Visit Arjun's GitHub profile" target="_blank" rel="noopener noreferrer" className="font-bold text-gray-900 hover:text-primary transition-colors">github.com/aarjjun</a>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -108,6 +116,11 @@ export default function ContactForm() {
           </div>
         )}
         <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
+          {/* Honeypot Field */}
+          <div style={{ display: 'none' }} aria-hidden="true">
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-900">Name*</label>
